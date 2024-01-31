@@ -30,19 +30,19 @@ namespace Egzamin_Rectangle1
                 var mm = new Unit
                 {
                     Name = "mm",
-                    Multiplier = 1000
+                    Multiplier = 1
                 };
 
                 var cm = new Unit
                 {
                     Name = "cm",
-                    Multiplier = 100
+                    Multiplier = 10
                 };
 
                 var m = new Unit
                 {
                     Name = "m",
-                    Multiplier = 1
+                    Multiplier = 1000
                 };
 
                 dbContext.Units.Add(mm);

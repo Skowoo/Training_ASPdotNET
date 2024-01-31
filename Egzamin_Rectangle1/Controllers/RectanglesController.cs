@@ -122,8 +122,8 @@ namespace Egzamin_Rectangle1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["HeightUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Id", rectangle.HeightUnitId);
-            ViewData["WidthUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Id", rectangle.WidthUnitId);
+            ViewData["HeightUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Name", rectangle.HeightUnitId);
+            ViewData["WidthUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Name", rectangle.WidthUnitId);
             return View(rectangle);
         }
 
