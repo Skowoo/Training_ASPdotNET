@@ -43,6 +43,8 @@ namespace Egzamin_Rectangle1.Controllers
                 return NotFound();
             }
 
+            ViewData["Area"] = Math.Round(1.0D * rectangle.Height * rectangle.Width * rectangle.WidthUnit.Multiplier * rectangle.HeightUnit.Multiplier / 1_000_000, 6);
+
             return View(rectangle);
         }
 
@@ -85,8 +87,8 @@ namespace Egzamin_Rectangle1.Controllers
             {
                 return NotFound();
             }
-            ViewData["HeightUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Id", rectangle.HeightUnitId);
-            ViewData["WidthUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Id", rectangle.WidthUnitId);
+            ViewData["HeightUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Name", rectangle.HeightUnitId);
+            ViewData["WidthUnitId"] = new SelectList(_context.Set<Unit>(), "Id", "Name", rectangle.WidthUnitId);
             return View(rectangle);
         }
 

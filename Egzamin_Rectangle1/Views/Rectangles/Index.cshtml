@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.HeightUnit!.Name)
             </th>
+            <th>
+                Powierzchnia
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +44,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HeightUnit!.Name)
+            </td>
+            <td>
+                @Math.Round(1.0D * item.Height * item.Width * item.WidthUnit.Multiplier * item.HeightUnit.Multiplier / 1_000_000, 6) m<sup>2</sup>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
