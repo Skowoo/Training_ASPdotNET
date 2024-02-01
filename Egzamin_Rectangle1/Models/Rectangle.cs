@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Egzamin_Rectangle1.Models
 {
     public class Rectangle
     {
+        public Rectangle() 
+        {
+            TimeAdded = DateTime.Now;
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -21,5 +27,8 @@ namespace Egzamin_Rectangle1.Models
 
         public int? HeightUnitId { get; set; }
         public Unit? HeightUnit { get; set; }
+
+        [Display(Name = "Czas dodania")]
+        public DateTime TimeAdded { get; }
     }
 }

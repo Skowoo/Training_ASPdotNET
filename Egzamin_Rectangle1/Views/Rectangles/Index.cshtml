@@ -27,6 +27,9 @@
             <th>
                 Powierzchnia
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeAdded)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -47,6 +50,9 @@
             </td>
             <td>
                 @Math.Round(1.0D * item.Height * item.Width * item.WidthUnit.Multiplier * item.HeightUnit.Multiplier / 1_000_000, 6) m<sup>2</sup>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAdded)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
