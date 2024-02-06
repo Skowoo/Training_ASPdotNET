@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egzamin_Rectangle1", "Egzamin_Rectangle1\Egzamin_Rectangle1.csproj", "{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin_Rectangle1", "Egzamin_Rectangle1\Egzamin_Rectangle1.csproj", "{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin2023", "Egzamin2023\Egzamin2023.csproj", "{B946E505-6C55-436C-9050-65BC2C51C885}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin2023Test", "Egzamin2023Test\Egzamin2023Test.csproj", "{60BD70D8-7900-46BB-8188-3E588397DBE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B946E505-6C55-436C-9050-65BC2C51C885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B946E505-6C55-436C-9050-65BC2C51C885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B946E505-6C55-436C-9050-65BC2C51C885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B946E505-6C55-436C-9050-65BC2C51C885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BD70D8-7900-46BB-8188-3E588397DBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BD70D8-7900-46BB-8188-3E588397DBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BD70D8-7900-46BB-8188-3E588397DBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BD70D8-7900-46BB-8188-3E588397DBE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

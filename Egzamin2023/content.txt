@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>title - Egzamin2023</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0" />
+    <link rel="stylesheet" href="/Egzamin2023.styles.css?v=JclVlKuZNFi23U0GSxCTP3OWA-tnHdSc_7eojYNBMIs" />
+</head>
+<body>
+<header>
+    <nav b-dym9guz0fn class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div b-dym9guz0fn class="container-fluid">
+            <a class="navbar-brand" href="/">Egzamin2023</a>
+            <button b-dym9guz0fn class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span b-dym9guz0fn class="navbar-toggler-icon"></span>
+            </button>
+            <div b-dym9guz0fn class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul b-dym9guz0fn class="navbar-nav flex-grow-1">
+                    <li b-dym9guz0fn class="nav-item">
+                        <a class="nav-link text-dark" href="/">Home</a>
+                    </li>
+                    <li b-dym9guz0fn class="nav-item">
+                        <a class="nav-link text-dark" href="/Home/Privacy">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div b-dym9guz0fn class="container">
+    <main b-dym9guz0fn role="main" class="pb-3">
+        
+<h2>title</h2>
+<form action="/Exam/Create" method="post">
+    <div class="mb-3">
+        <label for="Title">Tytu&#x142;</label>
+        <input class="form-control input-validation-error" type="text" data-val="true" data-val-length="The field Tytu&#x142; must be a string with a minimum length of 3 and a maximum length of 20." data-val-length-max="20" data-val-length-min="3" data-val-required="The Tytu&#x142; field is required." id="Title" maxlength="20" name="Title" value="as" />
+        <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true">The field Tytu&#x142; must be a string with a minimum length of 3 and a maximum length of 20.</span>
+    </div>
+    <div class="mb-3">
+        <label for="Content">Tre&#x15B;&#x107;</label>
+        <textarea class="form-control input-validation-error" data-val="true" data-val-length="The field Tre&#x15B;&#x107; must be a string with a minimum length of 10 and a maximum length of 2000." data-val-length-max="2000" data-val-length-min="10" data-val-required="The Tre&#x15B;&#x107; field is required." id="Content" maxlength="2000" name="Content">
+abcde</textarea>
+        <span class="field-validation-error" data-valmsg-for="Content" data-valmsg-replace="true">The field Tre&#x15B;&#x107; must be a string with a minimum length of 10 and a maximum length of 2000.</span>
+    </div>
+    <div class="mb-3">
+        <label for="Deadline">Data wa&#x17C;no&#x15B;ci</label>
+        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Data wa&#x17C;no&#x15B;ci field is required." id="Deadline" name="Deadline" value="05.02.2024 08:15:19" /><input name="__Invariant" type="hidden" value="Deadline" />
+        <span class="field-validation-valid" data-valmsg-for="Deadline" data-valmsg-replace="true"></span>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-light" type="submit">Zapisz</button>
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Pd9-9S_509LrvhkUnrbaIlK9oRNhLEqJ59kEeeXCGxgkGEsBztWsx7CrHnlF4Kj4YJGGezSR2KYH_nuT0Uf4di8GpsTc8jCpkWRYg_qCeQ06U75UWRkVqaVMfWWaqjpKwhLKuiZjuMt5Hn6xCk6Oi0" /></form>
+    </main>
+</div>
+
+<footer b-dym9guz0fn class="border-top footer text-muted">
+    <div b-dym9guz0fn class="container">
+        &copy; 2024 - Egzamin2023 - <a href="/Home/Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+
+</body>
+</html>
