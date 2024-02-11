@@ -1,5 +1,9 @@
 ﻿@model Book
 
+<h1>Edytuj: @Model.Title</h1>
+
+<br/>
+
 <form asp-action="Edit" asp-controller="Book" method="post"> @* Form defines where and how data should be send *@
 
     <div asp-validation-summary="All"></div> @* Display all validation problems *@
@@ -53,7 +57,7 @@
     </div>
 
     <div>
-        <button class="btn btn-primary" type="submit">Wyślij formularz</button>
+        <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
     </div>
 
 </form>

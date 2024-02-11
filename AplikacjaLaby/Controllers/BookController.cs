@@ -57,16 +57,23 @@ namespace AplikacjaLaby.Controllers
         [HttpPost]
         public IActionResult Edit(Book book)
         {
-            var target = _books.Where(x => x.Id == book.Id).Single();
+            if (ModelState.IsValid)
+            {
+                var target = _books.Where(x => x.Id == book.Id).Single();
 
-            target.Author = book.Author;
-            target.Title = book.Title;
-            target.ISBN = book.ISBN;
-            target.Publisher = book.Publisher;
-            target.PublishYear = book.PublishYear;
-            target.Pages = book.Pages;
+                target.Author = book.Author;
+                target.Title = book.Title;
+                target.ISBN = book.ISBN;
+                target.Publisher = book.Publisher;
+                target.PublishYear = book.PublishYear;
+                target.Pages = book.Pages;
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(book);
+            }
         }
     }
 }
