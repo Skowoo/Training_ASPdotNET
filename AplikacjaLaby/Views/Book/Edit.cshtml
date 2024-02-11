@@ -1,0 +1,59 @@
+﻿@model Book
+
+<form asp-action="Edit" asp-controller="Book" method="post"> @* Form defines where and how data should be send *@
+
+    <div asp-validation-summary="All"></div> @* Display all validation problems *@
+
+    <div> @* Block for first attribute *@
+        <label asp-for="Title">Tytuł:</label> @* Label - description *@
+        <div>
+            <span asp-validation-for="Title" class="text-danger"></span> @* DIV containing space to display validation problems for Title *@
+        </div>
+        <input asp-for="Title" type="text" class="form-control"/> @* Input box for Title *@
+    </div>
+
+    <div>
+        <label asp-for="Author">Autor:</label>
+        <div>
+            <span asp-validation-for="Author" class="text-danger"></span>  @* VALIDATION SPAN MUST HAVE OPENING AND CLOSE TAG! *@
+        </div>
+        <input asp-for="Author" type="text" class="form-control"/>
+    </div>
+
+    <div>
+        <label asp-for="Pages">Liczba stron:</label>
+        <div>
+            <span asp-validation-for="Pages" class="text-danger"></span>
+        </div>
+        <input asp-for="Pages" type="number" class="form-control"/>
+    </div>
+
+    <div>
+        <label asp-for="ISBN">Numer ISBN:</label>
+        <div>
+            <span asp-validation-for="ISBN" class="text-danger"></span>
+        </div>
+        <input asp-for="ISBN" class="form-control" type="text"/>
+    </div>
+
+    <div>
+        <label asp-for="PublishYear">Rok wydania:</label>
+        <div>
+            <span asp-validation-for="PublishYear" class="text-danger"></span>
+        </div>
+        <input asp-for="PublishYear" class="form-control" type="text"/>
+    </div>
+
+    <div>
+        <label asp-for="Publisher">Wydawca:</label>
+        <div>
+            <span asp-validation-for="Publisher" class="text-danger"></span>
+        </div>
+        <input asp-for="Publisher" class="form-control" type="text"/>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" type="submit">Wyślij formularz</button>
+    </div>
+
+</form>

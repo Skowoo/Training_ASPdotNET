@@ -1,0 +1,57 @@
+﻿@model List<Book>
+
+<h2>Lista Ksiązek:</h2>
+
+<table class="table">
+    <tr> @* Table Row *@
+        <th> @* Table Head *@
+            Tytuł
+        </th>
+        <th>
+            Autor
+        </th>
+        <th>
+            Ilość stron
+        </th>
+        <th>
+            Numer ISBN
+        </th>
+        <th>
+            Rok wydania
+        </th>
+        <th>
+            Wydawca
+        </th>
+        <th>
+            Akcje
+        </th>
+    </tr>
+    @foreach(Book item in @Model)
+    {
+        <tr>
+            <td> @* Table Data *@
+                @item.Title
+            </td>
+            <td>
+                @item.Author
+            </td>
+            <td>
+                @item.Pages
+            </td>
+            <td>
+                @item.ISBN
+            </td>
+            <td>
+                @item.PublishYear
+            </td>
+            <td>
+                @item.Publisher
+            </td>
+            <td>
+                <a class="btn-primary" asp-action="Edit" asp-controller="Book" asp-route-id="@item.Id">Edytuj</a>
+                <a class="btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                <a class="btn-primary" asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+    }
+</table>
