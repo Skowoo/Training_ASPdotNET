@@ -5,21 +5,29 @@ namespace AplikacjaLaby.Controllers
 {
     public class BookController : Controller
     {
-        // MUST BE STATIC or else it will initialize each time controller is called
-        static readonly List<Book> _books =
-        [new Book { 
-            Id = 1, 
-            Author = "Janusz Tracz", 
-            ISBN = "321-21-21-54321-2",
-            Pages = 200, Publisher = "Rebis", 
-            PublishYear = 2000, 
-            Title = "Pierwsza", 
-            Availability = Availability.High 
-        } ];
+        // Moved to SERVICE!
+        //// MUST BE STATIC or else it will initialize each time controller is called
+        //static readonly List<Book> _books =
+        //[new Book { 
+        //    Id = 1, 
+        //    Author = "Janusz Tracz", 
+        //    ISBN = "321-21-21-54321-2",
+        //    Pages = 200, Publisher = "Rebis", 
+        //    PublishYear = 2000, 
+        //    Title = "Pierwsza", 
+        //    Availability = Availability.High 
+        //} ]; 
+
+        private readonly IBookService _bookService;
+
+        public BookController(IBookService bookService)
+        {
+            _bookService = bookService;
+        }
 
         public IActionResult Index()
         {
-            return View(_books);
+            return View(_bookService.GetAll());
         }
 
         [HttpGet]
@@ -33,8 +41,7 @@ namespace AplikacjaLaby.Controllers
         {
             if (ModelState.IsValid)
             {
-                book.Id = _books.Count == 0 ? 1 : _books.Max(x => x.Id) + 1;
-                _books.Add(book);
+                _bookService.Add(book);
                 return RedirectToAction("Index");
             }
             else
@@ -45,21 +52,20 @@ namespace AplikacjaLaby.Controllers
 
         public IActionResult Delete(int id)
         {
-            var target = _books.Where(x => x.Id == id).Single();
-            _books.Remove(target);
+            _bookService.Delete(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Details(int? id)
         {
-            var target = _books.Where(x => x.Id == id).Single();
+            var target = _bookService.GetById((int)id!);
             return View(target);
         }
 
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            var target = _books.Where(x => x.Id == id).Single();
+            var target = _bookService.GetById((int)id!);
             return View(target);
         }
 
@@ -68,16 +74,7 @@ namespace AplikacjaLaby.Controllers
         {
             if (ModelState.IsValid)
             {
-                var target = _books.Where(x => x.Id == book.Id).Single();
-
-                target.Author = book.Author;
-                target.Title = book.Title;
-                target.ISBN = book.ISBN;
-                target.Publisher = book.Publisher;
-                target.PublishYear = book.PublishYear;
-                target.Pages = book.Pages;
-                target.Availability = book.Availability;
-
+                _bookService.Update(book);
                 return RedirectToAction("Index");
             }
             else

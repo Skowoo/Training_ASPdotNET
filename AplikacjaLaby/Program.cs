@@ -1,3 +1,5 @@
+using AplikacjaLaby.Models;
+
 namespace AplikacjaLaby
 {
     public class Program
@@ -8,6 +10,7 @@ namespace AplikacjaLaby
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IBookService, MemoryBookService>(); // Register SERVICE for books (memory)
 
             var app = builder.Build();
 
