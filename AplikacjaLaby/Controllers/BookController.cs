@@ -6,7 +6,16 @@ namespace AplikacjaLaby.Controllers
     public class BookController : Controller
     {
         // MUST BE STATIC or else it will initialize each time controller is called
-        static List<Book> _books = new() { new Book { Id = 1, Author = "Janusz Tracz", ISBN = "321-21-21-54321-2", Pages = 200, Publisher = "Rebis", PublishYear = 2000, Title = "Pierwsza"} };
+        static readonly List<Book> _books =
+        [new Book { 
+            Id = 1, 
+            Author = "Janusz Tracz", 
+            ISBN = "321-21-21-54321-2",
+            Pages = 200, Publisher = "Rebis", 
+            PublishYear = 2000, 
+            Title = "Pierwsza", 
+            Availability = Availability.High 
+        } ];
 
         public IActionResult Index()
         {
@@ -67,6 +76,7 @@ namespace AplikacjaLaby.Controllers
                 target.Publisher = book.Publisher;
                 target.PublishYear = book.PublishYear;
                 target.Pages = book.Pages;
+                target.Availability = book.Availability;
 
                 return RedirectToAction("Index");
             }

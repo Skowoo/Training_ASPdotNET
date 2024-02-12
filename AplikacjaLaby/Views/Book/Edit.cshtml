@@ -57,6 +57,14 @@
     </div>
 
     <div>
+        <label asp-for="Availability"></label>
+        <div>
+            <span asp-validation-for="Availability" class="text-danger"></span>
+        </div>
+        <select asp-for="Availability" class="form-control" asp-items="@Html.GetEnumSelectList<Availability>()"></select>
+    </div>
+
+    <div>
         <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
     </div>
 

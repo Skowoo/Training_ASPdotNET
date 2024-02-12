@@ -1,6 +1,8 @@
-﻿@model List<Book>
+﻿@model IEnumerable<Book>
 
 <h2>Lista Ksiązek:</h2>
+
+<a asp-action="Create">Dodaj książkę</a>
 
 <table class="table">
     <tr> @* Table Row *@
@@ -21,6 +23,9 @@
         </th>
         <th>
             Wydawca
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Availability)  @* Display name taken from field name od Name attribute if specified *@
         </th>
         <th>
             Akcje
@@ -48,9 +53,12 @@
                 @item.Publisher
             </td>
             <td>
-                <a class="btn-primary" asp-action="Edit" asp-controller="Book" asp-route-id="@item.Id">Edytuj</a>
-                <a class="btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
-                <a class="btn-primary" asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                @item.Availability.GetDisplayName()  @* !! Custom Extension method !! *@
+            </td>
+            <td>
+                <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
             </td>
         </tr>
     }

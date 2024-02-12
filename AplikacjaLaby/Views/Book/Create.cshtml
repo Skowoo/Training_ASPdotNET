@@ -53,6 +53,14 @@
     </div>
 
     <div>
+        <label asp-for="Availability"></label>
+        <div>
+            <span asp-validation-for="Availability" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Availability" asp-items="@Html.GetEnumSelectList<Availability>()"></select> @*  SELECT - lista rozwijana z opcjami z ENUM *@
+    </div>
+
+    <div>
         <button class="btn btn-primary" type="submit">Wyślij formularz</button>
     </div>
 
