@@ -1,4 +1,5 @@
 using AplikacjaLaby.Models.Services;
+using AplikacjaLabyData;
 
 namespace AplikacjaLaby
 {
@@ -10,8 +11,11 @@ namespace AplikacjaLaby
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IBookService, MemoryBookService>(); // Register SERVICE for books (memory)
+            //builder.Services.AddSingleton<IBookService, MemoryBookService>(); // Register SERVICE for books (memory)
             builder.Services.AddSingleton<ITimeProvider, CustomTimeProvider>(); // Register TimeProvider Service
+
+            builder.Services.AddDbContext<AppDbContext>(); // Register DB context
+            builder.Services.AddTransient<IBookService, SQLiteBookService>(); // Register SERVICE for book (SQLite)
 
             var app = builder.Build();
 
