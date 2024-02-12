@@ -32,5 +32,8 @@ namespace AplikacjaLaby.Models
 
         [Display(Name = "Dostępność")]
         public Availability Availability { get; set; }
+
+        [HiddenInput]
+        public DateTime Created { get; set; }
     }
 }

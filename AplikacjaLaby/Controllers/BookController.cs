@@ -1,23 +1,11 @@
 ﻿using AplikacjaLaby.Models;
+using AplikacjaLaby.Models.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AplikacjaLaby.Controllers
 {
     public class BookController : Controller
     {
-        // Moved to SERVICE!
-        //// MUST BE STATIC or else it will initialize each time controller is called
-        //static readonly List<Book> _books =
-        //[new Book { 
-        //    Id = 1, 
-        //    Author = "Janusz Tracz", 
-        //    ISBN = "321-21-21-54321-2",
-        //    Pages = 200, Publisher = "Rebis", 
-        //    PublishYear = 2000, 
-        //    Title = "Pierwsza", 
-        //    Availability = Availability.High 
-        //} ]; 
-
         private readonly IBookService _bookService;
 
         public BookController(IBookService bookService)

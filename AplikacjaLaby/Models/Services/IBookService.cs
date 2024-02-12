@@ -1,4 +1,4 @@
-﻿namespace AplikacjaLaby.Models
+﻿namespace AplikacjaLaby.Models.Services
 {
     public interface IBookService
     {

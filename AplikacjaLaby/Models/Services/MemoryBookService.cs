@@ -1,8 +1,14 @@
-﻿
-namespace AplikacjaLaby.Models
+﻿namespace AplikacjaLaby.Models.Services
 {
     public class MemoryBookService : IBookService
     {
+        private readonly ITimeProvider _timeProvider;
+
+        public MemoryBookService(ITimeProvider timeProvider)
+        {
+            _timeProvider = timeProvider;
+        }
+
         static readonly List<Book> _books =
         [new Book
         {
@@ -19,6 +25,7 @@ namespace AplikacjaLaby.Models
         public int Add(Book item)
         {
             item.Id = _books.Count == 0 ? 1 : _books.Max(x => x.Id) + 1;
+            item.Created = _timeProvider.GetCurrentTime();
             _books.Add(item);
             return item.Id;
         }
@@ -26,7 +33,7 @@ namespace AplikacjaLaby.Models
         public void Delete(int id)
         {
             var target = _books.Where(x => x.Id == id).SingleOrDefault();
-            
+
             if (target != null)
                 _books.Remove(target);
         }
