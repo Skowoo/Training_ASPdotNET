@@ -55,8 +55,8 @@ namespace AplikacjaLabyData
                 NormalizedUserName = "ADMINNAME"
             };
 
-            var passwordHasher = new PasswordHasher<IdentityUser>();
-            passwordHasher.HashPassword(admin, "Admin3k@2k24"); //Hash and save admin password
+            PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
+            admin.PasswordHash = ph.HashPassword(admin, "Admin3k@2k24");
 
             modelBuilder.Entity<IdentityUser>().HasData(admin); // Add admin to database
 
@@ -86,7 +86,7 @@ namespace AplikacjaLabyData
                 EmailConfirmed = true
             };
 
-            passwordHasher.HashPassword(user, "User3k@2k24");
+            ph.HashPassword(user, "User3k@2k24");
 
             modelBuilder.Entity<IdentityUser>().HasData(user);
 

@@ -1,10 +1,12 @@
 ﻿using AplikacjaLaby.Models;
 using AplikacjaLaby.Models.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AplikacjaLaby.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -14,6 +16,7 @@ namespace AplikacjaLaby.Controllers
             _bookService = bookService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_bookService.GetAll());
