@@ -24,27 +24,29 @@ namespace AplikacjaLabyData
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // Function which helps to create DB
         {
-            modelBuilder.Entity<OwnerEntity>() //Define that OwnerEntity have one Adress.
-                .OwnsOne(x => x.Address) // Adress is not alone entity, it groups some data. In this case, program will create all columns from Adress in OwnerEntity table.
+            modelBuilder.Entity<BookEntity>() // Define relations between entitities
+                .HasOne(e => e.Owner)
+                .WithMany(e => e.Books)
+                .HasForeignKey(e => e.OwnerId);
+
+            modelBuilder.Entity<OwnerEntity>() //Define that OwnerEntity have one Adress.                
                 .HasData(
-                new OwnerEntity
+                new OwnerEntity // Initial date for Owners
                 {
                     Id = 1,
                     Name = "Pawel",
-                    Surname = "Bielecki",
-
+                    Surname = "Bielecki"
                 },
                 new OwnerEntity
                 {
                     Id = 2,
                     Name = "Jacek",
-                    Surname = "Obrzut",
-
+                    Surname = "Obrzut"
                 }
                 );
 
             modelBuilder.Entity<BookEntity>()
-                .HasData( // Method to populate table with basic data
+                .HasData( // Initial data for Books
                 new BookEntity
                 {
                     Id = 1,
@@ -70,6 +72,14 @@ namespace AplikacjaLabyData
                     OwnerId = 2,
                 }
             );
+
+
+            modelBuilder.Entity<OwnerEntity>()
+                .OwnsOne(x => x.Address) // Adress is not alone entity, it groups some data. In this case, program will create all columns from Adress in OwnerEntity table.
+                .HasData( // Populate adresses of egsisting Owners with Addresses. Give ID consist of base class name (OwnerEntity) and it's PrimaryKey (Id)
+                    new { OwnerEntityId = 1, City = "Kraków", Street = "Św. Filipa 17", PostalCode = "31-150", Region = "małopolskie" },
+                    new { OwnerEntityId = 2, City = "Kraków", Street = "Krowoderska 45/6", PostalCode = "31-150", Region = "małopolskie" }
+                );
         }
     }
 }

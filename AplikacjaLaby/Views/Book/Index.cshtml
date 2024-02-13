@@ -2,7 +2,7 @@
 
 <h2>Lista Ksiązek:</h2>
 
-<a asp-action="Create">Dodaj książkę</a>
+<a asp-action="Create" class="btn btn-primary">Dodaj książkę</a>
 
 <table class="table">
     <tr> @* Table Row *@
@@ -26,6 +26,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Availability)  @* Display name taken from field name od Name attribute if specified *@
+        </th>
+        <th>
+            Właściciel:
         </th>
         <th>
             Akcje
@@ -56,9 +59,12 @@
                 @item.Availability.GetDisplayName()  @* !! Custom Extension method !! *@
             </td>
             <td>
-                <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
-                <a asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
-                <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                @item.OwnerId
+            </td>
+            <td>
+                <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edytuj</a> |
+                <a asp-controller="Book" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Szczegóły</a> |
+                <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Usuń</a>
             </td>
         </tr>
     }

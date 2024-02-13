@@ -1,6 +1,7 @@
 ﻿using AplikacjaLaby.Models;
 using AplikacjaLaby.Models.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AplikacjaLaby.Controllers
 {
@@ -21,7 +22,15 @@ namespace AplikacjaLaby.Controllers
         [HttpGet]
         public IActionResult Create() //Return form
         {
-            return View();
+            Book newBook = new();
+
+            newBook.Owners =
+                _bookService
+                .GetAllOwners()
+                .Select(x => new SelectListItem() { Text = $"{x.Name} {x.Surname}", Value = x.Id.ToString() }) // Transform Owner into SelectListItem using LINQ
+                .ToList();
+
+            return View(newBook);
         }
 
         [HttpPost] // Called from FORM - when posted
@@ -34,6 +43,12 @@ namespace AplikacjaLaby.Controllers
             }
             else
             {
+                book.Owners =
+                    _bookService
+                    .GetAllOwners()
+                    .Select(x => new SelectListItem() { Text = $"{x.Name} {x.Surname}", Value = x.Id.ToString() }) // Transform Owner into SelectListItem using LINQ
+                    .ToList();
+
                 return View(book); 
             }
         }
@@ -54,6 +69,15 @@ namespace AplikacjaLaby.Controllers
         public IActionResult Edit(int? id)
         {
             var target = _bookService.GetById((int)id!);
+
+            if (target is null)
+                RedirectToAction("Index");
+
+            target!.Owners = 
+                _bookService.GetAllOwners()
+                .Select(x => new SelectListItem() { Text = $"{x.Name} {x.Surname}", Value = x.Id.ToString() })
+                .ToList();
+
             return View(target);
         }
 
@@ -67,6 +91,11 @@ namespace AplikacjaLaby.Controllers
             }
             else
             {
+                book.Owners =
+                    _bookService.GetAllOwners()
+                    .Select(x => new SelectListItem() { Text = $"{x.Name} {x.Surname}", Value = x.Id.ToString() })
+                    .ToList();
+
                 return View(book);
             }
         }

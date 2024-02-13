@@ -1,4 +1,6 @@
-﻿namespace AplikacjaLaby.Models.Services
+﻿using AplikacjaLabyData.Entities;
+
+namespace AplikacjaLaby.Models.Services
 {
     public class MemoryBookService : IBookService
     {
@@ -7,6 +9,11 @@
         public MemoryBookService(ITimeProvider timeProvider)
         {
             _timeProvider = timeProvider;
+        }
+
+        public List<OwnerEntity> GetAllOwners()
+        {
+            throw new NotImplementedException();
         }
 
         static readonly List<Book> _books =

@@ -51,5 +51,7 @@ namespace AplikacjaLaby.Models.Services
             _context.Books.Update(BookMapper.ToEntity(item)); 
             _context.SaveChanges();
         }
+
+        public List<OwnerEntity> GetAllOwners() => _context.Owners.ToList();
     }
 }

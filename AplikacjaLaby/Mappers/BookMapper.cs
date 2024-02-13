@@ -17,6 +17,7 @@ namespace AplikacjaLaby.Mappers
             result.Publisher = input.Publisher;
             result.Availability = (Availability)input.Availability;
             result.Created = input.Created;
+            result.OwnerId = input.OwnerId;
 
             return result;
         }
@@ -34,6 +35,7 @@ namespace AplikacjaLaby.Mappers
             result.Publisher = input.Publisher;
             result.Availability = (int)input.Availability;
             result.Created = input.Created;
+            result.OwnerId = input.OwnerId;
 
             return result;
         }

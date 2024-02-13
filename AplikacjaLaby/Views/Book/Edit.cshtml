@@ -65,6 +65,14 @@
     </div>
 
     <div>
+        <label asp-for="OwnerId"></label>
+        <div>
+            <span asp-validation-for="OwnerId" class="text-danger"></span>
+        </div>
+        <select asp-for="OwnerId" class="form-control" asp-items="Model.Owners"></select>
+    </div>
+
+    <div>
         <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
     </div>
 

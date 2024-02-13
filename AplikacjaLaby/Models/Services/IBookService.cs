@@ -1,4 +1,6 @@
-﻿namespace AplikacjaLaby.Models.Services
+﻿using AplikacjaLabyData.Entities;
+
+namespace AplikacjaLaby.Models.Services
 {
     public interface IBookService
     {
@@ -11,5 +13,7 @@
         List<Book> GetAll();
 
         Book? GetById(int id);
+
+        List<OwnerEntity> GetAllOwners();
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace AplikacjaLaby.Models
@@ -35,5 +37,11 @@ namespace AplikacjaLaby.Models
 
         [HiddenInput]
         public DateTime Created { get; set; }
+
+
+        [HiddenInput]
+        public int OwnerId { get; set; }
+        [ValidateNever]
+        public List<SelectListItem> Owners { get; set; }
     }
 }
