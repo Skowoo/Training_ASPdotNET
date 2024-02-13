@@ -8,6 +8,8 @@ namespace AplikacjaLabyData
     {
         public DbSet<BookEntity> Books { get; set; }
 
+        public DbSet<OwnerEntity> Owners { get; set; }
+
         private string DbPath { get; set; } // Variable to store file path for SQLite Db
 
         public AppDbContext()
@@ -22,7 +24,27 @@ namespace AplikacjaLabyData
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // Function which helps to create DB
         {
-            modelBuilder.Entity<BookEntity>().HasData( // Method to populate table with basic data
+            modelBuilder.Entity<OwnerEntity>() //Define that OwnerEntity have one Adress.
+                .OwnsOne(x => x.Address) // Adress is not alone entity, it groups some data. In this case, program will create all columns from Adress in OwnerEntity table.
+                .HasData(
+                new OwnerEntity
+                {
+                    Id = 1,
+                    Name = "Pawel",
+                    Surname = "Bielecki",
+
+                },
+                new OwnerEntity
+                {
+                    Id = 2,
+                    Name = "Jacek",
+                    Surname = "Obrzut",
+
+                }
+                );
+
+            modelBuilder.Entity<BookEntity>()
+                .HasData( // Method to populate table with basic data
                 new BookEntity
                 {
                     Id = 1,
@@ -32,7 +54,8 @@ namespace AplikacjaLabyData
                     Publisher = "Rebis",
                     PublishYear = 1985,
                     Title = "Pierwsza kniga",
-                    Availability = 0
+                    Availability = 0,
+                    OwnerId = 1,
                 },
                 new BookEntity
                 {
@@ -43,7 +66,8 @@ namespace AplikacjaLabyData
                     Publisher = "Moderna",
                     PublishYear = 1993,
                     Title = "Druga kniga",
-                    Availability = 2
+                    Availability = 2,
+                    OwnerId = 2,
                 }
             );
         }

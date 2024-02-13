@@ -27,5 +27,8 @@ namespace AplikacjaLabyData.Entities
         public int Availability { get; set; }
 
         public DateTime Created { get; set; }
+
+        public int OwnerId { get; set; }
+        public OwnerEntity? Owner { get; set; }
     }
 }
