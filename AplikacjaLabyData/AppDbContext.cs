@@ -1,10 +1,11 @@
 ﻿using AplikacjaLabyData.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace AplikacjaLabyData
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<BookEntity> Books { get; set; }
 
@@ -16,7 +17,7 @@ namespace AplikacjaLabyData
         {
             var folder = Environment.SpecialFolder.LocalApplicationData; // Folder with local application data
             var path = Environment.GetFolderPath(folder); // Direct path to folder with local data
-            DbPath = System.IO.Path.Join(path, "books.db"); // joining Db file name to path and assigning it to dedicated variable
+            DbPath = Path.Join(path, "books.db"); // joining Db file name to path and assigning it to dedicated variable
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
@@ -24,6 +25,78 @@ namespace AplikacjaLabyData
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // Function which helps to create DB
         {
+            #region Identity Data Creation
+
+            base.OnModelCreating(modelBuilder); // Add it to build IdentityDatabase !!
+
+            // ----------------------------------------------------------------------------------- Adding ADMIN to database
+
+            // Create GUID for initial Users and Roles
+            string adminId = Guid.NewGuid().ToString();
+            string adminRoleId = Guid.NewGuid().ToString();
+
+            modelBuilder.Entity<IdentityRole>().HasData( // Admin Role which will be created during DB creation
+                new IdentityRole()
+                {
+                    Id = adminRoleId,
+                    Name = "Admin",
+                    NormalizedName = "ADMIN",
+                    ConcurrencyStamp = adminRoleId
+                }
+                );
+
+            IdentityUser admin = new() // New User (admin)
+            {
+                Id = adminId,
+                Email = "adminmail@poczta.pl",
+                EmailConfirmed = true,
+                UserName = "AdminName",
+                NormalizedEmail = "ADMINMAIL@POCZTA.PL",
+                NormalizedUserName = "ADMINNAME"
+            };
+
+            var passwordHasher = new PasswordHasher<IdentityUser>();
+            passwordHasher.HashPassword(admin, "Admin3k@2k24"); //Hash and save admin password
+
+            modelBuilder.Entity<IdentityUser>().HasData(admin); // Add admin to database
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData( // Assign admin to role (using ID's)
+                new IdentityUserRole<string>() { UserId = adminId, RoleId = adminRoleId} );
+
+            // ----------------------------------------------------------------------------------- Adding USER to database
+
+            string userId = Guid.NewGuid().ToString();
+            string userRoleId = Guid.NewGuid().ToString();
+
+            modelBuilder.Entity<IdentityRole>().HasData
+                ( new IdentityRole() {
+                    Name = "User",
+                    Id = userRoleId,
+                    NormalizedName = "USER",
+                    ConcurrencyStamp = userRoleId
+                });
+
+            var user = new IdentityUser()
+            {
+                UserName = "User",
+                NormalizedUserName = "USER",
+                Id = userId,
+                Email = "usermail@poczta.pl",
+                NormalizedEmail = "USERMAIL@POCZTA.PL",
+                EmailConfirmed = true
+            };
+
+            passwordHasher.HashPassword(user, "User3k@2k24");
+
+            modelBuilder.Entity<IdentityUser>().HasData(user);
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData( 
+                new IdentityUserRole<string>() { UserId = userId, RoleId = userRoleId});
+
+            #endregion
+
+            #region Application Data Creation/Seeding
+
             modelBuilder.Entity<BookEntity>() // Define relations between entitities
                 .HasOne(e => e.Owner)
                 .WithMany(e => e.Books)
@@ -80,6 +153,8 @@ namespace AplikacjaLabyData
                     new { OwnerEntityId = 1, City = "Kraków", Street = "Św. Filipa 17", PostalCode = "31-150", Region = "małopolskie" },
                     new { OwnerEntityId = 2, City = "Kraków", Street = "Krowoderska 45/6", PostalCode = "31-150", Region = "małopolskie" }
                 );
+
+            #endregion
         }
     }
 }
