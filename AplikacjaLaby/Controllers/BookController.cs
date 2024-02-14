@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AplikacjaLaby.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -16,7 +16,7 @@ namespace AplikacjaLaby.Controllers
             _bookService = bookService;
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             return View(_bookService.GetAll());
@@ -53,6 +53,26 @@ namespace AplikacjaLaby.Controllers
                     .ToList();
 
                 return View(book); 
+            }
+        }
+
+        [HttpGet]
+        public IActionResult CreateUsingApi() //Return form
+        {
+            return View();
+        }
+
+        [HttpPost] // Called from FORM - when posted
+        public IActionResult CreateUsingApi(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                _bookService.Add(book);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(book);
             }
         }
 
