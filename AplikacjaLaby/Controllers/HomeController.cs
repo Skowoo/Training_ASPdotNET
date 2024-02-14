@@ -1,3 +1,4 @@
+using AplikacjaLaby.Classes;
 using AplikacjaLaby.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -59,6 +60,7 @@ namespace AplikacjaLaby.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Visit"] = Response.HttpContext.Items[LastVisitCookie.CookieName]; // Take data from Response context (added there by middleware layer)
             return View();
         }
 

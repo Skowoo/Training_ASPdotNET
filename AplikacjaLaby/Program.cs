@@ -1,3 +1,4 @@
+using AplikacjaLaby.Classes;
 using AplikacjaLaby.Models.Services;
 using AplikacjaLabyData;
 using Microsoft.AspNetCore.Identity;
@@ -51,7 +52,7 @@ namespace AplikacjaLaby
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseMiddleware<LastVisitCookie>(); // Register custom middleware in correct place! (after routing and before authotization will use it only when route (address) is ok)
             app.UseAuthorization();
 
             app.MapControllerRoute(
