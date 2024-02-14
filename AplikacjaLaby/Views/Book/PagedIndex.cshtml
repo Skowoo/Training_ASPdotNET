@@ -1,10 +1,9 @@
-﻿@model IEnumerable<Book>
+﻿@model AplikacjaLaby.Classes.PagingList<Book>
 
 <h2>Lista Ksiązek:</h2>
 
 <a asp-action="Create" class="btn btn-primary">Dodaj książkę</a> | 
-<a asp-action="CreateUsingApi" class="btn btn-primary">Dodaj książkę (wersja z API)</a> |
-<a asp-action="PagedIndex" class="btn btn-primary">Wersja stronicowana</a>
+<a asp-action="CreateUsingApi" class="btn btn-primary">Dodaj książkę (wersja z API)</a>
 
 <table class="table">
     <tr> @* Table Row *@
@@ -27,7 +26,7 @@
             Wydawca
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Availability)  @* Display name taken from field name od Name attribute if specified *@
+            @Html.DisplayNameFor(model => model.Data.GetEnumerator().Current.Availability)  @* Display name taken from field name od Name attribute if specified *@
         </th>
         <th>
             Właściciel:
@@ -36,7 +35,7 @@
             Akcje
         </th>
     </tr>
-    @foreach(Book item in @Model)
+    @foreach(Book item in @Model.Data)
     {
         <tr>
             <td> @* Table Data *@
@@ -71,3 +70,45 @@
         </tr>
     }
 </table>
+
+<nav aria-label="Books page navigation">
+    <ul class="pagination">
+        @if (Model.IsPrevious)
+        {
+            <li class="page-item">
+                <a class="page-link"
+                   asp-action="PagedIndex"
+                   asp-route-page="@(Model.Page - 1)"
+                   asp-route-size="@Model.Size">
+                    Poprzednia
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link">Poprzednia</a>
+            </li>
+        }
+        <li class="page-item disabled">
+            <a class="page-link">@Model.Page</a>
+        </li>
+        @if (Model.IsNext)
+        {
+            <li class="page-item">
+                <a class="page-link"
+                   asp-action="PagedIndex"
+                   asp-route-page="@(Model.Page + 1)"
+                   asp-route-size="@Model.Size">
+                    Następna
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link">Następna</a>
+            </li>
+        }
+    </ul>
+</nav>

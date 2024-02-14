@@ -1,4 +1,5 @@
-﻿using AplikacjaLabyData.Entities;
+﻿using AplikacjaLaby.Classes;
+using AplikacjaLabyData.Entities;
 
 namespace AplikacjaLaby.Models.Services
 {
@@ -9,11 +10,6 @@ namespace AplikacjaLaby.Models.Services
         public MemoryBookService(ITimeProvider timeProvider)
         {
             _timeProvider = timeProvider;
-        }
-
-        public List<OwnerEntity> GetAllOwners()
-        {
-            throw new NotImplementedException();
         }
 
         static readonly List<Book> _books =
@@ -61,5 +57,10 @@ namespace AplikacjaLaby.Models.Services
             target.Pages = item.Pages;
             target.Availability = item.Availability;
         }
+
+        public List<OwnerEntity> GetAllOwners() => throw new NotImplementedException();
+
+        public PagingList<Book> FindPage(int page, int size) => throw new NotImplementedException();
+
     }
 }

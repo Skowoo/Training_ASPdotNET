@@ -22,6 +22,11 @@ namespace AplikacjaLaby.Controllers
             return View(_bookService.GetAll());
         }
 
+        public IActionResult PagedIndex([FromQuery] int page = 1, [FromQuery] int size = 1)
+        {
+            return View(_bookService.FindPage(page, size));
+        }
+
         [HttpGet]
         public IActionResult Create() //Return form
         {

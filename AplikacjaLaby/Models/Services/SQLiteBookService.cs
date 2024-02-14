@@ -1,4 +1,5 @@
-﻿using AplikacjaLaby.Mappers;
+﻿using AplikacjaLaby.Classes;
+using AplikacjaLaby.Mappers;
 using AplikacjaLabyData;
 using AplikacjaLabyData.Entities;
 
@@ -53,5 +54,15 @@ namespace AplikacjaLaby.Models.Services
         }
 
         public List<OwnerEntity> GetAllOwners() => _context.Owners.ToList();
+
+        public PagingList<Book> FindPage(int page, int size) => 
+            PagingList<Book>.Create((p, s) 
+                => _context.Books
+            .OrderBy(b => b.Title)
+            .Skip((p - 1) * size).Take(s)
+            .Select(x => BookMapper.FromEntity(x))
+            .ToList(), 
+            _context.Books.Count(), page, size);
+
     }
 }
