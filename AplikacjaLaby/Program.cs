@@ -1,7 +1,6 @@
 using AplikacjaLaby.Models.Services;
 using AplikacjaLabyData;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace AplikacjaLaby
 {
@@ -10,7 +9,6 @@ namespace AplikacjaLaby
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
             builder.Services.AddControllersWithViews();
 
