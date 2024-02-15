@@ -1,15 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Views\Exam\Create.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Exam\Details.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Exam\Index.cshtml" />
-    </ItemGroup>
 
 </Project>

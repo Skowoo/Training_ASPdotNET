@@ -1,0 +1,15 @@
+﻿@model Note
+
+<h1>@Model.Title</h1>
+
+<div>
+    @{
+        var rows = @Model.Content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        foreach (string row in rows)
+        {
+            <p>@row</p>
+        }
+    }
+</div>
+
+<a asp-action="Index" class="btn btn-primary">Powrót to listy</a>

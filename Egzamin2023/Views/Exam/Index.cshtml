@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Note>
+
+<h1>Lista notatek</h1>
+
+<ul>
+    @foreach (Note item in Model)
+    {
+        <li> <a asp-action="Details" asp-route-id="@item.Title">@item.Title</a> </li>
+    }
+</ul>
