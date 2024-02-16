@@ -1,0 +1,25 @@
+﻿@model Rectangle
+
+<form asp-action="Create" method="post">
+
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Width"></label>
+        <span asp-validation-for="Width"></span>
+        <input asp-for="Width" />
+        <select asp-for="WidthUnit" asp-items="@Html.GetEnumSelectList<Unit>()"></select>
+    </div>
+
+    <div>
+        <label asp-for="Height"></label>
+        <span asp-validation-for="Height"></span>
+        <input asp-for="Height" />
+        <select asp-for="HeightUnit" asp-items="@Html.GetEnumSelectList<Unit>()"></select>
+    </div>
+
+    <div>
+        <button type="submit">Wyślij</button>
+    </div>
+    
+
+</form>

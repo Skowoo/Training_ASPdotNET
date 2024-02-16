@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin2023Test", "Egzamin2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaLaby", "AplikacjaLaby\AplikacjaLaby.csproj", "{41C9D7CB-9ABD-49C4-8724-6E9DB022DB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplikacjaLabyData", "AplikacjaLabyData\AplikacjaLabyData.csproj", "{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaLabyData", "AplikacjaLabyData\AplikacjaLabyData.csproj", "{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Egzamin_Rectangle2", "Egzamin_Rectangle2\Egzamin_Rectangle2.csproj", "{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

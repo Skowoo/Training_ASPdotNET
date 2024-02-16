@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Rectangle>
+
+    <h1>Rectanglesy</h1>
+
+    <ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a asp-action="Details" asp-route-id="@item.Id">@item.Area, @item.CreatedAt</a>
+        </li>
+    }
+    </ul>
