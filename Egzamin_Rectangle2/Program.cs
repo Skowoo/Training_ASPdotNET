@@ -1,3 +1,4 @@
+using Egzamin_Rectangle2.Data;
 using Egzamin_Rectangle2.Services;
 
 namespace Egzamin_Rectangle2
@@ -8,10 +9,16 @@ namespace Egzamin_Rectangle2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddSingleton<IRectangleService, MemoryRectangleService>();
+            //builder.Services.AddSingleton<IRectangleService, MemoryRectangleService>();
+
+            // Register DbContext and add service - DB scoped, MEMORY - Singleton
+            builder.Services.AddDbContext<Context>();
+            builder.Services.AddScoped<IRectangleService, SQLiteService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            
 
             var app = builder.Build();
 
