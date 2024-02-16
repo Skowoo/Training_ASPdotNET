@@ -6,7 +6,6 @@ namespace Egzamin2023.Models
 
     public class Note
     {
-        [Key]
         [Display(Name = "Tytuł")]
         [StringLength(20, MinimumLength = 3)]
         public string Title { get; set; }

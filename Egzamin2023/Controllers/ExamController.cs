@@ -11,10 +11,10 @@ namespace Egzamin2023.Controllers
         private readonly IDateProvider _dateProvider;
         private readonly NoteService _noteService;
 
-        public ExamController(IDateProvider dateProvider, NoteService ns)
+        public ExamController(IDateProvider dateProvider, NoteService noteService)
         {
             _dateProvider = dateProvider;
-            _noteService = ns;
+            _noteService = noteService;
         }
 
         [HttpGet]
@@ -26,7 +26,8 @@ namespace Egzamin2023.Controllers
         [HttpPost]
         public IActionResult Create(Note note)
         {
-            if (note.Deadline < _dateProvider.CurrentDate.AddHours(1)) // Model State BEFORE model validation!!!
+            // Add ModelError to given atribute with given message string - must be done before validation
+            if (note.Deadline < _dateProvider.CurrentDate.AddHours(1)) 
                 ModelState.AddModelError("Deadline", "Czas ważności musi być o godzinę późniejszy od bieżącego czasu!");
 
             if (ModelState.IsValid)
@@ -35,20 +36,24 @@ namespace Egzamin2023.Controllers
 
                 return RedirectToAction("Index");
             }
-            else return View(note);
+            
+            return View(note);
         }
 
-        public IActionResult Index() // Display only notes with valid deadline term!
-            => View(_noteService.GetAll().Where(x => x.Deadline > _dateProvider.CurrentDate.AddHours(1)).ToList());
+        public IActionResult Index() => View(_noteService.GetAll());
 
-        public IActionResult Details(string id) // Remember about null case = no item in collection - return BadRequest!
+        // Remember about null case
+        public IActionResult Details(string id) 
         {
+            // Take item from Service (Service must return nullable prop)
             var target = _noteService.GetById(id);
 
-            if (target is null)
-                return BadRequest();
+            // if target is null (not found in service)
+            if (target is null) 
+                return BadRequest(); // Return BadRequest() Status: 400
 
-            else return View(target);
+            // If everything is OK - return view with target
+            return View(target);
         }
     }
 }

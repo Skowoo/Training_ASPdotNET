@@ -5,6 +5,8 @@
 <ul>
     @foreach (Note item in Model)
     {
-        <li> <a asp-action="Details" asp-route-id="@item.Title">@item.Title</a> </li>
+        <li> 
+            <a asp-action="Details" asp-route-id="@item.Title">@item.Title</a> 
+        </li>
     }
 </ul>

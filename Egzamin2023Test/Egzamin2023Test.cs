@@ -113,7 +113,7 @@ public class Egzamin2023Test : IClassFixture<Egzamin2023TestFactory<Program>>
     {
         using (var scope = _factory.Services.CreateScope())
         {
-            // Type? noteServiceType = Type.GetType("NoteService"); //Original version
+            // Type? noteServiceType = Type.GetType("NoteService"); // Original version
             Type? noteServiceType = Type.GetType("Egzamin2023.Services.NoteService,Egzamin2023");
             Assert.NotNull(noteServiceType);
 

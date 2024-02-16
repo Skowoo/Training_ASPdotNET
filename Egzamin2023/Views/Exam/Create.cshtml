@@ -1,32 +1,26 @@
 ﻿@model Note
 
-<form action="Create" method="post">
+<form asp-action="Create" method="post">
     <div>
         <label asp-for="Title"></label>
-        <div>
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
-        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title"></span>
+        <input asp-for="Title"/>
     </div>
 
     <div>
         <label asp-for="Content"></label>
-        <div>
-            <span asp-validation-for="Content" class="text-danger"></span>
-        </div>
-        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content"></span>
+        <textarea asp-for="Content"></textarea>
     </div>
 
     <div>
         <label asp-for="Deadline"></label>
-        <div>
-            <span asp-validation-for="Deadline" class="text-danger"></span>
-        </div>
-        <input asp-for="Deadline" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Deadline"></span>
+        <input asp-for="Deadline" type="datetime-local" />
     </div>
-    <br />
+
     <div>
-        <button class="btnm btn-primary" type="submit">Prześlij</button>
+        <button type="submit">Prześlij</button>
     </div>
 
 </form>

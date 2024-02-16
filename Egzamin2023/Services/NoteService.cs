@@ -13,19 +13,25 @@ namespace Egzamin2023.Services
 
         private static List<Note> Notes = new();
 
-        public void Add(Note input) // Avoid duplicates and wrong dealines!
+        // Avoid duplicates and wrong dealines!
+        public void Add(Note input) 
         {
-            if (input.Deadline < _dateTimeProvider.CurrentDate.AddHours(1))
+            // If Note is not valid (deadline too soon) - return (no action)
+            if (input.Deadline < _dateTimeProvider.CurrentDate.AddHours(1)) 
                 return;
 
-            if (Notes.Where(x => x.Title.Equals(input.Title)).Count() != 0)
+            // If there is already Note with same ID - return (no action)
+            if (Notes.Where(x => x.Title.Equals(input.Title)).Any()) 
                 return;
 
-            Notes.Add(input);
+            Notes.Add(input); // Else add Note to internal List
         }
 
-        public List<Note> GetAll() => Notes;
+        // Return only valid Notes (judge by Deadline) - wtf task -,-
+        public List<Note> GetAll() 
+            => Notes.Where(x => x.Deadline > _dateTimeProvider.CurrentDate).ToList();
 
-        public Note? GetById(string id) => Notes.SingleOrDefault(x => x.Title.Equals(id)); // Return nullable property - if item not found return null and handle this case in controller
+        // Return nullable property - if item not found return null and handle this case in controller
+        public Note? GetById(string id) => Notes.SingleOrDefault(x => x.Title.Equals(id)); 
     }
 }

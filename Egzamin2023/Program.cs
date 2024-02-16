@@ -5,8 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<NoteService>();
-builder.Services.AddTransient<IDateProvider, DefaultDateProvider>();
+
+builder.Services.AddSingleton<NoteService>(); // Register NoteSevice as SINGLETON (for memory services)
+
+builder.Services.AddTransient<IDateProvider, DefaultDateProvider>(); // Register IDateProvider Service
 
 var app = builder.Build();
 
