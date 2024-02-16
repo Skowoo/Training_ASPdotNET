@@ -6,9 +6,9 @@ namespace Egzamin_Rectangle2.Controllers
 {
     public class RectangleController : Controller
     {
-        private static RectangleService _rectangleService;
+        private static IRectangleService _rectangleService;
 
-        public RectangleController(RectangleService rs)
+        public RectangleController(IRectangleService rs)
         {
             _rectangleService = rs;
         }
@@ -26,8 +26,9 @@ namespace Egzamin_Rectangle2.Controllers
         {
             if (ModelState.IsValid)
             {
-                _rectangleService.Add(input);
-                return RedirectToAction($"Index");
+                int newId = _rectangleService.Add(input);
+                // Redircet to action with parameter - new Id taken from Service method
+                return RedirectToAction("Details", new { id = newId });
             }
 
             return View(input);

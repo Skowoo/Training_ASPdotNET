@@ -2,17 +2,18 @@
 
 namespace Egzamin_Rectangle2.Services
 {
-    public class RectangleService
+    public class MemoryRectangleService : IRectangleService
     {
         List<Rectangle> _rects = new();
 
-        public void Add(Rectangle input)
+        public int Add(Rectangle input)
         {
             input.Id = _rects.Max(x => x.Id) + 1;
             input.Id ??= 1;
             input.CreatedAt = DateTime.Now;
-            input.Area = (decimal)input.Height * input.Width * Convert.ToInt32(input.HeightUnit) * Convert.ToInt32(input.WidthUnit) / 1_000_000;
+            input.Area = (decimal)input.Height * input.Width * (int)input.HeightUnit * (int)input.WidthUnit / 1_000_000;
             _rects.Add(input);
+            return (int)input.Id;
         }
 
         public List<Rectangle> GetAll() => _rects;

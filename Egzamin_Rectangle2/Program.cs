@@ -8,7 +8,7 @@ namespace Egzamin_Rectangle2
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddSingleton<RectangleService>();
+            builder.Services.AddSingleton<IRectangleService, MemoryRectangleService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
