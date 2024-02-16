@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin_Rectangle2", "Egzam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFirst1", "DbFirst1\DbFirst1.csproj", "{9522B2CE-6A9C-4702-807D-D857F927C6C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFirst2_SQL", "DbFirst2_SQL\DbFirst2_SQL.csproj", "{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
