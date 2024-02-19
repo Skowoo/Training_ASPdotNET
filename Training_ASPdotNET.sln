@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaLabyData", "Aplika
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin_Rectangle2", "Egzamin_Rectangle2\Egzamin_Rectangle2.csproj", "{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFirst1", "DbFirst1\DbFirst1.csproj", "{9522B2CE-6A9C-4702-807D-D857F927C6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFirst1", "DbFirst1\DbFirst1.csproj", "{9522B2CE-6A9C-4702-807D-D857F927C6C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFirst2_SQL", "DbFirst2_SQL\DbFirst2_SQL.csproj", "{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFirst2_SQL", "DbFirst2_SQL\DbFirst2_SQL.csproj", "{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin", "Egzamin\Egzamin.csproj", "{BD5FB849-5C00-4BCA-A4F2-974B1FC9E0D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgzaminTest", "EgzaminTest\EgzaminTest.csproj", "{5CFB7F34-744C-4813-A439-FE2767038B89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39644866-DF6C-4D6A-BBD2-3782FBFCAABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5FB849-5C00-4BCA-A4F2-974B1FC9E0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5FB849-5C00-4BCA-A4F2-974B1FC9E0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5FB849-5C00-4BCA-A4F2-974B1FC9E0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5FB849-5C00-4BCA-A4F2-974B1FC9E0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CFB7F34-744C-4813-A439-FE2767038B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CFB7F34-744C-4813-A439-FE2767038B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CFB7F34-744C-4813-A439-FE2767038B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CFB7F34-744C-4813-A439-FE2767038B89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Album>
+
+<h1>Wyszukaj album</h1>
+
+<form asp-action="Index" method="get">
+    <select name="ArtistId">
+        @foreach (var artist in ViewBag.Artists)
+        {
+            <option value="@artist.ArtistId">@artist.Name</option>
+        }
+    </select>
+
+    <button type="submit">Wybierz</button>
+</form>
+
+
+@if (Model is not null)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @item.Title
+            </li>
+        }
+    </ul>
+}
