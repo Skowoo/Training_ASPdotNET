@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin_Rectangle1", "Egzamin_Rectangle1\Egzamin_Rectangle1.csproj", "{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin2023", "Egzamin2023\Egzamin2023.csproj", "{B946E505-6C55-436C-9050-65BC2C51C885}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin2023Test", "Egzamin2023Test\Egzamin2023Test.csproj", "{60BD70D8-7900-46BB-8188-3E588397DBE8}"
@@ -12,8 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaLaby", "AplikacjaLaby\AplikacjaLaby.csproj", "{41C9D7CB-9ABD-49C4-8724-6E9DB022DB28}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplikacjaLabyData", "AplikacjaLabyData\AplikacjaLabyData.csproj", "{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Egzamin_Rectangle2", "Egzamin_Rectangle2\Egzamin_Rectangle2.csproj", "{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFirst1", "DbFirst1\DbFirst1.csproj", "{9522B2CE-6A9C-4702-807D-D857F927C6C6}"
 EndProject
@@ -29,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D9CA4A9-282D-48F1-BF5E-E809B9B7AE10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B946E505-6C55-436C-9050-65BC2C51C885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B946E505-6C55-436C-9050-65BC2C51C885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B946E505-6C55-436C-9050-65BC2C51C885}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,10 +41,6 @@ Global
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83AD323D-EF7E-4D63-87F4-C0F1E517EE62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D1823B2-4BC3-4A4A-9C9F-E2A92A2851EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9522B2CE-6A9C-4702-807D-D857F927C6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
